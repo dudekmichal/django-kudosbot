@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="60">
+
+    <link rel="stylesheet" href="{% static 'bot/style.css' %}">
+
+</head>
+<body>
+<center>
+<a class="button3" onclick="location.href='{% url "enable" %}'">Enable bot</a>
+<a class="button3" onclick="location.href='{% url "status" %}'">Refresh</a>
+<br>
+<p style="font-size:13px">Page will refresh automatically after 60s.</p>
+<br><br>
+
+<div class="container">
+<table>
+
+    <caption>List of last 100 kudos</caption>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Club</th>
+      <th>Date</th>
+    <tr>
+    </thead>
+
+    <tbody>
+    {% for item in last_hundred_kudos %}
+        <tr>
+            <td style="border:solid">ID: {{item.id}}</td>
+            <td style="border:solid">Club: {{item.club}}</td>
+            <td style="border:solid">Date: {{item.date}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+</center>
+</body>
+</html>
