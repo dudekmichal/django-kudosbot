@@ -54,15 +54,15 @@ class KudosBot:
 
     def login(self):
         self.driver.get("https://www.strava.com/login")
-        self.sleep(config("STRAVA_LOGGING_TIME"))
+        self.sleep(config("STRAVA_LOGGING_TIME", cast=int))
 
         mail = self.driver.find_element(by="id", value="email")
         mail.send_keys(config("STRAVA_EMAIL"))
 
         password = self.driver.find_element(by="id", value="password")
-        password.send_keys(config("STRAVA_EMAIL_PASSWORD"))
+        password.send_keys(config("STRAVA_PASSWORD"))
         password.send_keys(Keys.RETURN)
-        self.sleep(config("STRAVA_LOGGING_TIME"))
+        self.sleep(config("STRAVA_LOGGING_TIME", cast=int))
 
     def go_to_club_recent_activities(self, club_name):
         if club_name.lower() == "following":
@@ -71,7 +71,7 @@ class KudosBot:
         else:
             self.driver.get(
                 f"https://www.strava.com/clubs/{club_name}/recent_activity")
-        self.sleep(config("STRAVA_REFRESH_TIME"))
+        self.sleep(config("STRAVA_REFRESH_TIME", cast=int))
 
     def enable_bot(self, clubs_number=5):
         self.log_current_time()
