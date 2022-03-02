@@ -11,6 +11,7 @@ Bot for giving kudos to activities of other people on Strava.
     + [Create database](#create-database)
     + [Migrate the database](#migrate-the-database)
     + [Create an administrative account](#create-an-administrative-account)
+    + [Enabling bot](#enabling-bot)
     + [Apache2 configuration](#apache2-configuration)
 - [Other/optional](#other-optional)
   * [Migrate data from SQLite to PostgreSQL](#migrate-data-from-sqlite-to-postgresql)
@@ -18,7 +19,7 @@ Bot for giving kudos to activities of other people on Strava.
 # Setup
 
 ### Create virtualenv
-    $ sudo apt install python3-pip postgresql postgresql-contrib chromium-chromedriver
+    $ sudo apt install python3-pip postgresql postgresql-contrib chromium-chromedriver apache2 libapache2-mod-wsgi-py3
     $ sudo pip3 install virtualenv
     $ cd django-kudosbot
     $ virtualenv venv
@@ -43,8 +44,14 @@ Bot for giving kudos to activities of other people on Strava.
 ### Create an administrative account
     $ python manage.py createsuperuser
 
+### Enabling bot
+  1. Add clubs in given format:
+
+  ![alt text](https://github.com/dudekmichal/django-kudosbot/blob/master/img/adding_club.png?raw=true)
+
+  2. Click on "Enable bot" button.
+
 ### Apache2 configuration
-    $ sudo apt install apache2 libapache2-mod-wsgi-py3
     $ python3 manage.py collectstatic
     Adjust django-kudosbot/000-default.conf file for your settings.    
     $ sudo cp 000-default.conf /etc/apache2/sites-available/000-default.conf
@@ -53,13 +60,6 @@ Bot for giving kudos to activities of other people on Strava.
     $ python manage.py check --deploy
     Fix printed warnings.
     $ sudo systemctl restart apache2
-
-### Enabling bot
-  1. Add clubs in given format:
-
-  ![alt text](https://github.com/dudekmichal/django-kudosbot/blob/master/img/adding_club.png?raw=true)
-
-  2. Click on "Enable bot" button.
 
 # Other/optional
 
