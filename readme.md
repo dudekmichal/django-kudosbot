@@ -51,7 +51,7 @@ Bot for giving kudos to activities of other people on Strava.
     $ sudo cp 000-default.conf /etc/apache2/sites-available/000-default.conf
     $ python manage.py check --deploy
     Fix printed warnings.
-    $ sudo service apache2 restart
+    $ sudo systemctl restart apache2
 
 ### Enabling bot
   1. Add clubs in given format:
