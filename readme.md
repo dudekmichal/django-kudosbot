@@ -47,7 +47,10 @@ Bot for giving kudos to activities of other people on Strava.
 ### Apache2 configuration
     $ sudo apt install apache2 libapache2-mod-wsgi-py3
     $ python3 manage.py collectstatic
+    Adjust django-kudosbot/000-default.conf file for your settings.    
     $ sudo cp 000-default.conf /etc/apache2/sites-available/000-default.conf
+    $ python manage.py check --deploy
+    Fix printed warnings.
     $ sudo service apache2 restart
 
 ### Enabling bot
