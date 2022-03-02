@@ -58,3 +58,6 @@ class Kudos(models.Model):
         return f"id: {self.id}, club_id: {self.club_id}, club_name: " \
                f"{club_name}, date: {self.date}"
 
+
+# class BotState(models.Model):
+#     enabled = models.BooleanField(default=False)

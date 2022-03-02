@@ -4,6 +4,8 @@ import time
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 
+from django import db
+
 from decouple import config
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -74,6 +76,7 @@ class KudosBot:
         self.sleep(config("STRAVA_REFRESH_TIME", cast=int))
 
     def enable_bot(self, clubs_number=5):
+        db.connections.close_all()
         self.log_current_time()
 
         selected_clubs = random.choices(Club.get_all_clubs(), k=clubs_number)
