@@ -2,8 +2,18 @@
 
 # kudosbot
 Bot for giving kudos to activities of other people on Strava.
+
 ![alt text](https://github.com/dudekmichal/django-kudosbot/blob/master/img/list_of_kudos.png?raw=true)
 
+# Table of content
+- [Setup](#setup)
+    + [Create virtualenv](#create-virtualenv)
+    + [Create database](#create-database)
+    + [Migrate the database](#migrate-the-database)
+    + [Create an administrative account](#create-an-administrative-account)
+    + [Apache2 configuration](#apache2-configuration)
+- [Other/optional](#other-optional)
+  * [Migrate data from SQLite to PostgreSQL](#migrate-data-from-sqlite-to-postgresql)
 
 # Setup
 
