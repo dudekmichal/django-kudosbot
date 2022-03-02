@@ -18,7 +18,7 @@ Bot for giving kudos to activities of other people on Strava.
 # Setup
 
 ### Create virtualenv
-    $ sudo apt install python3-pip
+    $ sudo apt install python3-pip postgresql postgresql-contrib chromium-chromedriver
     $ sudo pip3 install virtualenv
     $ cd django-kudosbot
     $ virtualenv venv
@@ -26,7 +26,6 @@ Bot for giving kudos to activities of other people on Strava.
     $ pip install -r requirements.txt
 
 ### Create database
-    $ sudo apt install postgresql postgresql-contrib
     $ psql
     $ CREATE DATABASE <db_name>;
     $ CREATE USER <db_user> WITH PASSWORD '<db_pass>';
